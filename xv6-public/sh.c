@@ -12,7 +12,7 @@
 #define PIPE 3
 #define LIST 4
 #define BACK 5
-// ERANNNNNNNNNNNNNNNNNNNNNNNNN
+
 #define MAXARGS 10
 
 char env_path[10][100];
