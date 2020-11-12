@@ -126,6 +126,9 @@ static int (*syscalls[])(void) = {
 [SYS_link]    sys_link,
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
+// -- start edit 12/11 --
+[SYS_getpinfo] sys_getpinfo,
+// -- end edit 12/11 --
 };
 
 void

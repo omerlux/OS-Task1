@@ -23,6 +23,9 @@ int getpid(void);
 char* sbrk(int);
 int sleep(int);
 int uptime(void);
+// -- start edit 12/11 --
+int getpinfo(void);
+// -- end edit 12/11 --
 
 // ulib.c
 int stat(const char*, struct stat*);

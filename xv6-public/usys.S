@@ -29,3 +29,6 @@ SYSCALL(getpid)
 SYSCALL(sbrk)
 SYSCALL(sleep)
 SYSCALL(uptime)
+// -- start edit 12/11 --
+SYSCALL(getpinfo)
+// -- end edit 12/11 --
