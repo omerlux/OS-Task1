@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
                 printf(2, "read error\n");
                 exit();
             }
-            else if(n>= 2 && buf_read[n-2]==3) break;// cntr + c 
+            else if(n>= 2 && buf_read[n-2]==3) break;// ctrl + c    # TODO: how to implement a signal ctrl+c?
             else {//write to file and console
                 if (write(fd_txt1, buf_read, n) != n) { // wrriten bytes not equal to n = error!
                     printf(2, "write error\n");
