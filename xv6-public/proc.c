@@ -225,7 +225,7 @@ fork(void)
 // An exited process remains in the zombie state
 // until its parent calls wait() to find out it exited.
 void
-exit(void)
+exit(int status)    // 13.11 changed from void to int
 {
     struct proc *curproc = myproc();
     struct proc *p;
