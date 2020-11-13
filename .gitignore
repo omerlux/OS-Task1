@@ -162,3 +162,10 @@ xv6-public/zombie.asm
 xv6-public/zombie.d
 xv6-public/zombie.o
 xv6-public/zombie.sym
+
+
+xv6-public/*.o
+xv6-public/*.d
+xv6-public/*.asm
+xv6-public/*.sym
+/xv6-public/_*

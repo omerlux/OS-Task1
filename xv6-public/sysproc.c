@@ -90,11 +90,12 @@ sys_uptime(void)
   return xticks;
 }
 
-// -- start edit 12/11 --
+// -- start edit 13/11 --
 // returns the table of the running processes
 int
 sys_getpinfo(void)
 {
-    return getpinfo();  // TODO: continue from here
+    getpinfo();  // printing the processes info
+    return 0;
 }
-// -- end edit 12/11 --
+// -- end edit 13/11 --

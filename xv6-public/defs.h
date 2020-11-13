@@ -120,6 +120,10 @@ void            userinit(void);
 int             wait(void);
 void            wakeup(void*);
 void            yield(void);
+// -- start edit 13/11 --
+void            getpinfo(void);
+// -- end edit 13/11 --
+
 
 // swtch.S
 void            swtch(struct context**, struct context*);

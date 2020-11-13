@@ -4,9 +4,9 @@
 
 #include "fcntl.h"
 
- //passing command line arguments 
-    
-int main(int argc, char *argv[]) 
+//passing command line arguments
+
+int main(int argc, char *argv[])
 {
     if(argc == 2){
         char buf_read[512]; // creates a buffer
