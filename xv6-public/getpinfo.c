@@ -9,5 +9,5 @@
 int main(int argc, char *argv[])
 {
     getpinfo();
-    exit();
+    exit(0);
 } 

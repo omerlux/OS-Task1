@@ -60,5 +60,5 @@ int main(int argc, char *argv[])
         close(fd_txt2); // closing file descriptor
     }else
         printf(2, "cannot tee, given %d arguments\n", argc);
-    exit();
+    exit(0);
 } 

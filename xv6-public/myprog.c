@@ -12,5 +12,5 @@ int main(int argc, char *argv[])
         printf(1, "%s ",argv[i]);
     }
 	printf(1, "\n");
-  exit(); 
+    exit(0);
 } 
