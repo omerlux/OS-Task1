@@ -205,7 +205,13 @@ main(void) {
                         env_path[i][s_end] = paths_line[s_end];
                         s_end++;
                     }
-                    env_path[i][s_end] = '\0';
+                    if (env_path[i][s_end-1] == '/') {
+                        env_path[i][s_end] = '\0';
+                    }
+                    else{   // if no '/' add it to the path
+                        env_path[i][s_end] = '/';
+                        env_path[i][s_end+1] = '\0';
+                    }
                     paths_line = paths_line + s_end + 1;		// it's a buffer - accumulate it by s_end+1
                     paths_len = paths_len - s_end;
 

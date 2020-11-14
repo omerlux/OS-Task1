@@ -109,7 +109,7 @@ exec(char *path, char **argv)
         freevm(pgdir);
     if(ip){
         iunlockput(ip);
-        end_op();   //TODO: here nagar put exit
+        end_op();
     }
     return -1;
 }
