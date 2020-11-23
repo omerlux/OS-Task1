@@ -1,11 +1,24 @@
 #include "types.h"
 #include "param.h"
 #include "memlayout.h"
-#include "mmu.h"
+#include "mmu.h"A
 #include "proc.h"
 #include "defs.h"
 #include "x86.h"
 #include "elf.h"
+#include "syscall.h"
+#include "traps.h"
+
+// Assembly function to push exit syscall to stack
+
+void
+exitf()
+{
+    asm volatile ("push %eax;");
+    asm volatile ("pop 4(%esp);");
+    asm volatile ("mov %0 , %%eax" : : "i" (SYS_exit));
+    asm volatile ("int %0" : : "i" (T_SYSCALL));
+}
 
 int
 exec(char *path, char **argv)
@@ -18,6 +31,9 @@ exec(char *path, char **argv)
     struct proghdr ph;
     pde_t *pgdir, *oldpgdir;
     struct proc *curproc = myproc();
+
+    //STEP 1 exit syscall size(byte)
+    int exitsz = (int)exec - (int)exitf;
 
     begin_op();
 
@@ -69,6 +85,10 @@ exec(char *path, char **argv)
     clearpteu(pgdir, (char*)(sz - 2*PGSIZE));
     sp = sz;
 
+    //Step 2 - stack pointer update and copy page from sp to exitf
+    sp = sz - exitsz;
+    copyout(pgdir, sp, exitf, exitsz);
+
     // Push argument strings, prepare rest of stack in ustack.
     for(argc = 0; argv[argc]; argc++) {
         if(argc >= MAXARG)
@@ -80,7 +100,7 @@ exec(char *path, char **argv)
     }
     ustack[3+argc] = 0;
 
-    ustack[0] = 0xffffffff;  // fake return PC
+    ustack[0] = sz - exitsz;  // NO fake return PC - return address of user space program
     ustack[1] = argc;
     ustack[2] = sp - (argc+1)*4;  // argv pointer
 

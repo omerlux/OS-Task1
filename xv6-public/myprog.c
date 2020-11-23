@@ -6,11 +6,7 @@
     
 int main(int argc, char *argv[]) 
 { 
-  printf(1, "My first xv6 program!\nNumber of arguments are %d\n", argc); 
-      for(int i=0;i<argc;i++)
-    {
-        printf(1, "%s ",argv[i]);
-    }
-	printf(1, "\n");
-    exit(0);
+  printf(1, "HelloXV6\n");
+
+  exit(0);
 } 
